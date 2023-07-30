@@ -21,7 +21,7 @@ mongoose.connect(`mongodb+srv://${dbUserName}:${dbPassword}@${dbServer}/?retryWr
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-app.use(helmet);
+app.use(helmet({ crossOriginResourcePolicy: false }));
 
 app.use((req, res, next) => {
    res.setHeader('Access-Control-Allow-Origin', '*');
